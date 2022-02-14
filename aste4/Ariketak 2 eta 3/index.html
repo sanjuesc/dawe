@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+
+		<script type="module">
+			import {tienda} from './oop/tienda.js';
+			//import Teklatua from './oop/teklatua.js';
+			function teklatua(evt){
+				alert("Ha pulsado " + evt.code);
+			}
+
+			document.addEventListener('keydown',teklatua,false);
+			//document.addEventListener('keydown',Teklatua.getBalioa(event),false);
+			window.onload = () => {
+				let imprimirListado = document.getElementById('listado');
+				tienda.forEach ( producto => {
+					let capa = document.createElement('div');
+					capa.innerHTML = producto.mostrar();
+					imprimirListado.appendChild(capa);
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="listado">
+
+		</div>
+	</body>
+</html>
