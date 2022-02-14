@@ -8,6 +8,7 @@
 			//import Teklatua from './oop/teklatua.js';
 			function teklatua(evt){
 				alert("Ha pulsado " + evt.code);
+				evt.preventDefault();
 			}
 
 			document.addEventListener('keydown',teklatua,false);
