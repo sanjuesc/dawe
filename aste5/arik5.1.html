@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ariketa 5.1</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+		function eskaera(){
+			var isbn = "ISBN:" + document.getElementById("combo").value
+			var url = "https://openlibrary.org/api/books?bibkeys="+isbn+"&jscmd=details&format=json";
+
+			$.ajax({url:url,
+				success:function(result){
+					$("#izenburua").html("Título: " + result[isbn]["details"]["title"] + ":" +result[isbn]["details"]["subtitle"]); 
+					$("#idazlea").html("Escritor/a: " + result[isbn]["details"]["authors"][0]["name"]);
+
+					/*
+					let irudia = document.createElement('div');
+					irudia.innerHTML = "<img src="result[isbn]['preview_url']['thumbnail_url'].replace('-S.jpg','-L.jpg')+">";
+					document.body.appendChild(irudia);
+					*/
+					document.getElementById("irudia").src = result[isbn]['thumbnail_url'].replace('-S,jpg','-L.jpg'); 
+					console.log(result[isbn]['thumbnail_url'])
+					console.log(url)
+				}
+
+			})
+
+		}
+		//window.onload = botoia
+
+
+		
+
+	</script>
+</head>
+<body>
+	<select id="combo" value="3">
+  		<option>9781491920497</option>
+  		<option>1491910399</option>
+  		<option>1491946008</option>
+  		<option>1491978236</option>
+  		<option>9781491906187</option>
+	</select>
+	<button onclick="eskaera()">Buscar el libro</button>
+	<p id='izenburua'>Título: </p>
+	<p id='idazlea'>Escritor/a: </p>
+	<p>Portada: </p>
+	<img id='irudia' src="" width="50" height="90"/>
+
+
+
+
+</body>
