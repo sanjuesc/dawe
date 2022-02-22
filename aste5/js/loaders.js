@@ -46,7 +46,7 @@ function loadSpriteSheet(){
 	return loadJSON('/sprites/sprites.json')
 		.then(sheetSpec => Promise.all([
 			sheetSpec,
-			loadImage(sheetSpec['imageURL']), // cargar imágenes de un spritesheet como sprites_arik521
+			loadImage(sheetSpec['imageURL']), // cargar imágenes de un spritesheet como sprites
 		]))
 		.then(([sheetSpec,image]) => {
 			const sprites = new SpriteSheet(image,sheetSpec['tileW'],sheetSpec['tileH']);
