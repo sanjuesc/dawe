@@ -1,4 +1,4 @@
-	
+
 export default class SpriteSheet {
 
     constructor(image, width, height){
@@ -9,7 +9,7 @@ export default class SpriteSheet {
     }
 
     define(name, x, y, width, height){
-       const buffer = document.createElement('canvas');
+        const buffer = document.createElement('canvas');
         buffer.width = width;
         buffer.height = height;
         // Ejercicio 7 (Tema: Canvas)
